@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\DropDown4rmViewbag.props" />
+</Project>

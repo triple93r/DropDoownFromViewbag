@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\DropDown4rmViewbag.props" />
+</Project>
