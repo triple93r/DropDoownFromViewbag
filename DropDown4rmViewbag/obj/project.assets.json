@@ -10729,11 +10729,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Practice\\Youtube\\DropDown4rmViewbag\\DropDown4rmViewbag\\DropDown4rmViewbag.csproj",
+      "projectUniqueName": "E:\\Practice\\Youtube\\DropDoownFromViewbag\\DropDown4rmViewbag\\DropDown4rmViewbag.csproj",
       "projectName": "DropDown4rmViewbag",
-      "projectPath": "E:\\Practice\\Youtube\\DropDown4rmViewbag\\DropDown4rmViewbag\\DropDown4rmViewbag.csproj",
+      "projectPath": "E:\\Practice\\Youtube\\DropDoownFromViewbag\\DropDown4rmViewbag\\DropDown4rmViewbag.csproj",
       "packagesPath": "C:\\Users\\tripl\\.nuget\\packages\\",
-      "outputPath": "E:\\Practice\\Youtube\\DropDown4rmViewbag\\DropDown4rmViewbag\\obj\\",
+      "outputPath": "E:\\Practice\\Youtube\\DropDoownFromViewbag\\DropDown4rmViewbag\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
