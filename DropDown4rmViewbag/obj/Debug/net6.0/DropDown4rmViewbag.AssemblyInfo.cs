@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DropDown4rmViewbag")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0bcbe21643a2c924e87f546be304227d120a6ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("DropDown4rmViewbag")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DropDown4rmViewbag")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

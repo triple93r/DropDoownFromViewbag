@@ -19,22 +19,36 @@ namespace DropDown4rmViewbag.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult TestDropdown()
-        {
-            var Subjects = (from subjcts in _context.tbl_Subjects
+            var Subjects = (from subjcts in _context.tbl_Subject
                             select new SelectListItem()
                             {
-                                Text = subjcts.sName, Value = subjcts.Id.ToString()
+                                Text = subjcts.sName,
+                                Value = subjcts.Id.ToString()
                             }).ToList();
             Subjects.Insert(0, new SelectListItem()
             {
                 Text = "-- Select --",
                 Value = string.Empty
             });
+            ViewBag.Scheme = Subjects;
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult TestDropdown()
+        {
+            var Subjects = (from subjcts in _context.tbl_Subject
+                            select new SelectListItem()
+                            {
+                                Text = subjcts.sName, 
+                                Value = subjcts.Id.ToString()
+                            }).ToList();
+            Subjects.Insert(0, new SelectListItem()
+            {
+                Text = "-- Select --",
+                Value = string.Empty
+            });
+            ViewBag.Scheme = Subjects;
             return View();
         }
 
