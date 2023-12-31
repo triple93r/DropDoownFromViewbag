@@ -30,50 +30,24 @@
                             <div class="mb-3 row">
                                 <div class="col-sm-12 col-lg-4">
                                     <label for="" class="col-form-label">Beneficiary Code</label>
-                                    <input class="form-control" type="text" value="" id="BenCode">
+                                    <input class="form-control" type="text" autocomplete="off" value="" id="BenCode">
                                 </div>
                                 <div class="col-sm-12 col-lg-4">
                                     <label for="" class="col-form-label">Beneficiary Name</label>
-                                    <input class="form-control" type="text" value="" id="Name">
+                                    <input class="form-control" type="text" autocomplete="off" value="" id="Name">
                                 </div>
                                 <div class="col-sm-12 col-lg-4">
                                     <label for="" class="col-form-label">Beneficiary Name (As per Bank Details)</label>
-                                    <input class="form-control" type="text" value="" id="NameAsperBank">
+                                    <input class="form-control" type="text" autocomplete="off" value="" id="NameAsperBank">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <div class="col-sm-12 col-lg-4">
-                                    <label for="" class="col-form-label">Select Scheme Type</label>
-                                    <select class="form-select" id="SchemeType">
-                                        <option value="0">Select</option>
-                                        @if (ViewBag.Schemetype != null)
-                                        {
-                                            @foreach (var items in ViewBag.Schemetype)
-                                            {
-                                                <option value=@items.Value>@items.Text </option>
-                                            }
-                                        }
-                                    </select>
-                                </div>
-                                <div class="col-sm-12 col-lg-4">
-                                    <label for="" class="col-form-label">Select Scheme</label>
+                                    <label for="" class="col-form-label">Select Subject</label>
                                     <select class="form-select" id="SchemeName">
-                                        @if (ViewBag.Scheme != null)
+                                        @if (ViewBag.Subject != null)
                                         {
-                                            @foreach (var items in ViewBag.Scheme)
-                                            {
-                                                <option value=@items.Value>@items.Text</option>
-                                            }
-                                        }
-                                    </select>
-                                </div>
-                                <div class="col-sm-12 col-lg-4">
-                                    <label for="" class="col-form-label">Select Sub-Secheme</label>
-                                    <select class="form-select" id="SubScheme">
-                                        <option value="0">Select</option>
-                                        @if (ViewBag.Schemetype != null)
-                                        {
-                                            @foreach (var items in ViewBag.Subscheme)
+                                            @foreach (var items in ViewBag.Subject)
                                             {
                                                 <option value=@items.Value>@items.Text</option>
                                             }

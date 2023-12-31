@@ -12,5 +12,7 @@ namespace DropDown4rmViewbag.Data
         }
         public DbSet<tblStudent> tblStudent { get; set; }
         public DbSet<tbl_Subject> tbl_Subject{ get; set; }
+        public DbSet<DropDown4rmViewbag.Models.StudentClass>? StudentClass { get; set; }
+        public DbSet<DropDown4rmViewbag.Models.AllClass>? AllClass { get; set; }
     }
 }

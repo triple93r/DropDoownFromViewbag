@@ -3,6 +3,7 @@ using DropDown4rmViewbag.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
+using System.Drawing;
 
 namespace DropDown4rmViewbag.Controllers
 {
@@ -30,7 +31,7 @@ namespace DropDown4rmViewbag.Controllers
                 Text = "-- Select --",
                 Value = string.Empty
             });
-            ViewBag.Scheme = Subjects;
+            ViewBag.Subject = Subjects;
             return View();
         }
 
@@ -48,9 +49,70 @@ namespace DropDown4rmViewbag.Controllers
                 Text = "-- Select --",
                 Value = string.Empty
             });
-            ViewBag.Scheme = Subjects;
+            ViewBag.Subject = Subjects;
             return View();
         }
+
+        [HttpGet]
+        public IActionResult GetClass()
+        {
+            return View(_context.AllClass.ToList());
+        }
+
+        [HttpGet]
+        public IActionResult GetStudents()
+        {
+            return View(_context.tblStudent.ToList());
+        }
+
+        [HttpGet]
+        public IActionResult GetStudentClass()
+        {
+            var x = _context.StudentClass.ToList();
+
+            var query =     (from stdclass in _context.StudentClass  
+                            join cl in _context.AllClass on stdclass.ClassId equals cl.Id
+                            select new StudentClass
+                            {
+                                Id = stdclass.Id,
+                                StudId = stdclass.Id,
+                                ClassId = stdclass.Id,
+                                ClassName = cl.ClName
+                            });
+            return View(query);
+        }
+
+        [HttpGet]
+        public IActionResult EditGetStudentClass(int Id)
+        {
+            var s = _context.StudentClass.Where(x => x.Id == Id).FirstOrDefault();
+            var Classes = (from classes in _context.AllClass
+                            select new SelectListItem()
+                            {
+                                Text = classes.ClName,
+                                Value = classes.Id.ToString()
+                            }).ToList();
+            Classes.Insert(0, new SelectListItem()
+            {
+                Text = "-- Select --",
+                Value = string.Empty
+            });
+            ViewBag.Classes = Classes;
+
+            return View(s);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditGetStudentClass(StudentClass sd)
+        {
+            var s = _context.StudentClass.Where(x => x.Id == sd.Id).FirstOrDefault();
+
+            s.ClassId = sd.ClassId;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("GetStudentClass");
+        }
+
 
         public IActionResult Privacy()
         {
