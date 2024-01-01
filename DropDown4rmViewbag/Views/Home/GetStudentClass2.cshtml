@@ -1,0 +1,118 @@
+﻿@model List<DropDown4rmViewbag.Models.StudentClass>
+
+@{
+    ViewData["Title"] = "GetStudentClass2";
+}
+
+<h1>GetStudentClass2</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form method="post" asp-action="GetStudentClass2" id="form1" >
+
+
+    <table id="dataTable" class="table">
+    <thead>
+        <tr>
+                <th>
+                    StudId drop
+                </th>
+            <th>
+                StudId
+            </th>
+            <th>
+                ClassId
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <select asp-for="@Model[i].sel1" class="form-select">
+                            <option value="1">Testw</option>
+                            <option value="2">Testy</option>
+                            <option value="3">Testr</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="hidden" asp-for=@Model[i].Id value="@Model[i].Id" title="jj" />
+                        <input type="text" border="0" asp-for=@Model[i].StudId />
+                        @* <label asp-for=@Model[i].StudId class="control-label"></label> *@
+                    </td>
+                    <td>
+                        <input type="text" border="0" asp-for=@Model[i].ClassId />
+                    </td>
+                        @* <label asp-for=@Model[i].ClassId class="control-label"></label> *@
+            <td>
+                        <a asp-action="Edit" asp-route-id=@Model[i].Id>Edit</a> |
+                        <a asp-action="Details" asp-route-id=@Model[i].Id>Details</a> |
+                        <a asp-action="Delete" asp-route-id=@Model[i].Id>Delete</a>
+            </td>
+                </tr>
+            }
+
+@* @foreach (var item in Model) 
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudId)
+               <label asp-for=@item.StudId class="control-label"></label>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassId)
+                        <label asp-for=@item.ClassId class="control-label"></label>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+} *@
+    </tbody>
+</table>
+
+
+<div class="d-flex float-end">
+        <button type="submit" id="submitBtn" class="btn btn-primary waves-effect waves-light w-md">Submit</button>
+    <button type="reset" id="btnClear" class="btn btn-warning waves-effect waves-light w-md">Clear</button>
+    </div>
+
+
+</form>
+
+<script>
+    // $(document).ready(function () {
+    //     $("#submitBtn").click(function () {
+    //         var tableData = [];
+
+    //         $("#dataTable tbody tr").each(function () {
+    //             var rowData = {
+    //                 ID: $(this).find("input[name='ID']").val(),
+    //                 Name: $(this).find("input[name='Name']").val(),
+    //                 Value: $(this).find("input[name='Value']").val()
+    //             };
+    //             tableData.push(rowData);
+    //         });
+
+    //         $.ajax({
+    //             url: '/YourController/ProcessTableDataAjax',
+    //             type: 'POST',
+    //             contentType: 'application/json',
+    //             data: JSON.stringify({ tableData: tableData }),
+    //             success: function (result) {
+    //                 // Handle success response
+    //             },
+    //             error: function (error) {
+    //                 // Handle error
+    //             }
+    //         });
+    //     });
+    // });
+</script>

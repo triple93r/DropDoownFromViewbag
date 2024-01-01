@@ -12,5 +12,7 @@ namespace DropDown4rmViewbag.Models
 
         [NotMapped]
         public string ClassName { get; set; }
+        [NotMapped]
+        public int sel1 { get; set; }
     }
 }

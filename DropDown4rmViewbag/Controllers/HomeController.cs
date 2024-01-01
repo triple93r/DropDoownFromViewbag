@@ -113,6 +113,50 @@ namespace DropDown4rmViewbag.Controllers
             return RedirectToAction("GetStudentClass");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetStudentClass2()
+        {
+            var x = _context.StudentClass.ToList();
+
+            var query = (from stdclass in _context.StudentClass
+                         join cl in _context.AllClass on stdclass.ClassId equals cl.Id
+                         select new StudentClass
+                         {
+                             Id = stdclass.Id,
+                             StudId = stdclass.Id,
+                             ClassId = stdclass.Id,
+                             ClassName = cl.ClName
+                         }).ToList();
+            return View(query);
+        }
+
+
+        [HttpPost]
+        public IActionResult GetStudentClass2(List<StudentClass> tableData)
+        {
+
+            if (tableData != null && tableData.Any())
+            {
+                foreach (var data in tableData)
+                {
+                    // Create a new entity to store in the database
+                    var entity = new StudentClass // Replace YourEntity with your actual entity type
+                    {
+                        StudId = data.StudId,
+                        ClassId = data.ClassId
+                        // Map other properties accordingly
+                    };
+
+                    // Assuming you are using Entity Framework Core
+                    _context.StudentClass.Add(entity);
+                }
+            }
+
+                // Save changes to the database
+                _context.SaveChanges();
+
+                return RedirectToAction("Index"); // Redirect to another action or view
+        }
 
         public IActionResult Privacy()
         {
